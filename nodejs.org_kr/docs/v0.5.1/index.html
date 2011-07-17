@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="sh_main.js"></script>
+    <script type="text/javascript" src="sh_javascript.min.js"></script>
+    <link type="image/x-icon" rel="icon" href="favicon.ico" />
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="pipe.css" />
+    <link type="text/css" rel="stylesheet" href="sh_vim-dark.css" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Node.js 한국 사용자 그룹</title>
+  </head>
+  <body>
+    <div id="toc">
+      <ol>
+        <li><a href="#download">다운로드</a></li>
+        <li><a href="#about">개요</a></li>
+        <br/>
+        <li><a href="../v0.4.9/api/index.html" target="nodejs_api_v0.4.9">v0.4.9 API 문서</a></li>
+        <li><a href="../v0.5.1/api/index.html" target="nodejs_api_v0.5.1">v0.5.1 API 문서</a></li>
+        <li><a href="https://github.com/joyent/node/wiki/ChangeLog" target="nodejs_changeLog">변경내용</a></li>
+        <br/>
+        <li><a href="#doc">관련문서</a></li>
+        <li><a href="#blog">블로그</a></li>
+        <li><a href="#community">커뮤니티</a></li>
+		<li><a href="#twitter">Twitter</a></li>
+        <li><a href="#demo">데모</a></li>
+        <br/>
+        <li><a href="#contact">함께해요!</a></li>
+      </ol>
+    </div>
+    <div id="content">
+      <br /><br />
+      <img id="logo" src="logo.png" alt="node.js"/>
+
+      <p id="introduction">
+        <strong>Node.js 한국 사용자 그룹</strong>
+      </p>
+
+      <p>
+      	아래는 NodeJS로 작성된 Web Server의 예로, 모든 요청에 대해 "Hello World"로 응답을 합니다.
+      </p>
+
+      <pre>
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:1337/');
+</pre>
+
+      <p>
+      	서버를 실행하기 위해서는 위의 코드를 <code>example.js</code> 파일로 작성한 후, 
+      	아래와 같이 <code>node</code> 명령을 실행하세요 :
+      </p>
+      <pre class="sh_none">
+% node example.js
+Server running at http://127.0.0.1:1337/</pre>
+
+      <p>
+		또한, 포트 번호 1337에서 수신하고 무엇이든 에코하는 간단한 TCP 서버는 다음과 같습니다.
+      </p>
+
+      <pre>
+var net = require('net');
+
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.pipe(socket);
+});
+
+server.listen(1337, "127.0.0.1");
+</pre>
+
+      <p>
+      	더 많은 예제가 보고 싶으신 분은 <a href="/docs">API 문서</a>를 참고하세요.
+      </p>
+
+
+      <p>
+		NodeJS 관련 정보가 필요하신 분은 <a href="https://github.com/joyent/node/wiki">공식 위키(영문)</a> 페이지를 참고하세요.
+      </p>
+
+      <h2 id="download">다운로드</h2>
+
+      <p>
+        <a href="http://github.com/joyent/node/tree/master">git repo</a>
+      </p>
+
+      <p>2011.06.29 v0.4.9 (안정버전)
+      <ul class="release">
+        <li><a href="http://nodejs.org/dist/node-v0.4.9.tar.gz"><code>node-v0.4.9.tar.gz</code> 소스/a>
+        <li><a href="http://nodejs.org/docs/v0.4.9/api/index.html">API 문서</a>
+      </ul>
+
+      <p>2011.07.14 v0.5.1 (개발버전)
+      <ul class="release">
+        <li><a href="http://nodejs.org/dist/v0.5.1/node-v0.5.1.tar.gz"><code>node-v0.5.1.tar.gz</code> 소스</a>
+        <li><a href="http://nodejs.org/dist/v0.5.1/node.exe"><code>node.exe</code> 원도우 바이너리</a>
+        <li><a href="http://nodejs.org/docs/v0.5.1/api/index.html">API 문서</a>
+      </ul>
+
+
+	
+      <p>
+      	전체 소스 및 문서 목록
+		<ul class="release">
+			<li><a href="http://nodejs.org/dist">소스 목록</a></li>
+			<li><a href="http://nodejs.org/docs">API 문서 목록</a></li>
+		</ul>
+      </p>
+
+      <p>
+      	직접 소스 빌드를 하실분은 
+        <a href="https://github.com/joyent/node/wiki/Installation">https://github.com/joyent/node/wiki/Installation</a> 페이지를 참고하세요.
+      </p>
+
+
+      <h2 id="about">개요(<a href="https://github.com/rhiokim/nodejs-korean/blob/master/v.0.2.1/index.rhio.html">@rhiokim님의 번역</a>)</h2>
+
+      <p>
+		Node의 목표는 손쉽게 확장이 가능한 네트워크 프로그램을 만드는 방법을 제
+        공하는 것입니다. 위의 "Hello World" 웹 서버 예제에서는 다수의 클라이언트
+        와의 연결을 동시에 처리할 수 있습니다. Node는 OS에(<code>epoll</code> 이나 <code>kqueue</code>,
+        <code class="sh_none">/dev/poll</code> 또는 <code>select</code>를 통해) 새로운 연결이 도착하면 알 수 있도록 지시
+        하고, 절전 상태가 됩니다. 그리고 새로운 연결이 있는 경우 콜백을 수행합니다.
+        각각의 연결은 아주 작은 힙 밖에 할당되지 않습니다.
+      </p>
+
+      <p>
+        이것은 OS 스레드를 가진 최근의 일반적인 동시성 모델과는 대조적입니다. 이
+        기술에 비해 쓰레드 기반 네트워크 프로그램은 비효율적이고 또한 아주 사용하기
+        어렵다는 것입니다. <a href="http://www.kegel.com/c10k.html">여기</a> 와
+        <a href="http://bulk.fefe.de/scalable-networking.pdf">여기</a>를 참조하십시오.
+        Node는 하나의 연결마다 2MB의 스택 메모리를 할당하는 쓰레드 시스템에 비해 작업량이 매우 좋은 메모리 효율을 제공합니다.
+        또한 Node 사용자는 프로세스의 교착 상태에 대한 걱정에서 해방되었습니다.
+        Node에는 잠금 장치가 없습니다. Node에 직접 I/O를 수행하는 함수가 거의
+        없기 때문에 프로세스는 결코 차단되지 않습니다. 블록이 없기 때문에 전문가가
+        아닌 프로그래머이라도 빠른 시스템을 개발하는 것이 가능합니다.
+      </p>
+
+      <p>
+		Node는 Ruby의 <a href="http://rubyeventmachine.com/">Event Machine</a>이나 Python의 <a href="http://twistedmatrix.com/">Twisted</a>의 영향을 받고 있으며,
+        비슷한 디자인으로 되어있습니다. 그러나 Node의 이벤트 모델은 조금더 진보했습
+        니다. 즉 이벤트 루프를 라이브러리로 제공하는 것이 아니라 언어 자체에 포함된
+        구성으로 제공하고 있습니다. Node가 아닌 시스템에서는 이벤트 루프를 시작할 때
+        차단시키는 호출도 존재합니다. 그러한 시스템은 일반적으로 스크립트의 시작부분
+        에서 콜백을 통해 수행할 작업을 정의하고 스크립트의 마지막에 <code>EventMachine::run()</code>
+        과 같은 블록을 호출하여 서버를 시작하고 있습니다. Node 에서는 이러한 "이벤
+        트 루프의 시작" 호출하지 않습니다. Node는 입력되는 스크립트를 실행하고 나면
+        그대로 이벤트 루프에 들어갑니다. 그리고 동작해야할 콜백이 없으면 이벤트 루프
+        에서 빠져 나옵니다. 이러한 동작은 브라우저의 JavaScript와 동일합니다. 즉,
+        이벤트 루프는 사용자로부터 은닉되어 있는 것입니다.
+      </p>
+
+      <p>
+        HTTP는 Node에서 최고의 프로토콜 입니다. Node의 HTTP 라이브러리는 제작자의
+        웹 서버 개발 경험을 탈피하게 하였습니다. 예를 들어 데이터 스트리밍은 대부분의
+        웹 프레임워크에서는 불가능합니다. Node는 이러한 문제점을 <a href="http://github.com/ry/http-parser/tree/master">HTTP 파서</a>와 API를
+        통하여 해결하려 합니다. Node의 이벤트 중심적인 설치하는 경우 웹 라이브러리 및
+        프레임워크들을 위한 매우 좋은 기반이 될 것입니다.
+      </p>
+
+      <p>
+        <i>
+        하지만 멀티 프로세서 환경에서는 어떻게 될까? 멀티 코어 컴퓨터에서 프로그
+        램을 확장하기 위해서는 스레드를 사용해야 하는 것이 아닌가?
+        </i>
+        멀티코어 컴퓨터에서는 확장하기 위해 필요한 메모리 공유 쓰레드가 없습니다.
+        확장 가능한 시스템의 기본은 빠른 네트워킹 및 차단이 없는 설계이고 나머지는
+        메세지 전송이 있으면 충분합니다. 향후 버전에서 Node는 현재의 설계와 아주
+        잘 맞는 형태로 자식 프로세스를 fork (<a
+        href="http://www.whatwg.org/specs/web-workers/current-work/"> Web
+        Workers API </a>를 사용하여)할 수 있게 될 예정입니다.
+      </p>
+
+      <p>
+        다음 문서 및 영상을 참고하세요:
+        <ul>
+          <li><a href="http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf">JSConf 2009에 소개된 문서</a></li>
+          <li><a href="http://nodejs.org/jsconf2010.pdf">JSConf 2010에 소개된 문서</a></li>
+          <li>YUI Theater : Ryan Dahl <a href="http://www.yuiblog.com/blog/2010/05/20/video-dahl/">“Introduction to NodeJS”</a></li>
+        </ul>
+      </p>
+
+      <h2 id="doc">관련문서</h2>
+      <p>
+      	<ol>
+	      	<li><a href="https://github.com/joyent/node/wiki" target="nodejs_wiki">공식 위키(영어)</a></li>
+	      	<li><a href="http://ajaxian.kr" target="Ajaxian.kr">Ajaxian.kr</a>
+				<ul>
+					<li><a href="">debugging Node.JS application with node-inspector</a></li>
+					<li><a href="">NodeJS 학습을 위한 Streamie Service Hack</a></li>
+					<li><a href="">core perspective to node.js</a></li>
+					<li><a href="">Simple WebSocket Server using Node.JS</a></li>
+					<li><a href="">WebSocket Client (HTML)</a></li>
+					<li><a href="">AppNotifications with Node.js</a></li>
+					<li><a href="">node.js 0.1.95 변경사항</a></li>
+					<li><a href="">node.js: HTTP module에 대한 번역된 설명입니다.</a></li>
+					<li><a href="">node.js 로 만드는 10 줄 HTTP server</a></li>
+				</ul>
+			</li>
+      	</ol>
+      </p>
+
+      <h2 id="twitter">Twitter</h2>
+      <p>
+          <ul>
+            <li><a href="http://twitter.com/search?q=#nodejs" target="_blank">#nodejs</a></li>
+            <li><a href="http://twitter.com/search?q=#nodekr" target="_blank">#nodekr</a></li>
+          </ul>
+      </p>
+      
+      <h2 id="blog">블로그</h2>
+      <p>
+      	<ol>
+			<li><a href="http://blog.nodejs.org/" target="nodejs_blog">node blog(영어)</a></li>
+      	</ol>
+      </p>
+
+      <h2 id="community">커뮤니티</h2>
+      <p>
+      	<ol>
+      		<li><a href="https://github.com/joyent/node/wiki/Community" target="nodejs_community">공식 커뮤니티(영어)</a></li>
+      		<li><a href="http://frends.kr" target="frends_kr">FRENDS</a></li>
+      	</ol>
+      </p>	
+      <h2 id="demo">데모</h2>
+      <ol>
+      	<li><a href="http://chat.nodejs.org/" target="nodejs_chat">node chat</a></li>
+      	<li><a href="https://twitter.com/Outsideris">@Outsideris</a>
+      		<ul>
+      			<li><a href="http://twicussion.nodester.com/">웹 프론트엔드 개발자에 대한 소회</a></li>
+      			<li><a href="http://sideeffect.kr:8001/#slide1">Socket.IO Presentation</a></li>
+      		</ul>
+		</li>
+      	<li>봄싹에서 만든 <a href="http://livelog.no.de/">백채널</a></li>
+      </ol>
+
+      <h2 id="contact">함께해요!</h2>
+      <p>
+      	<ul>
+	      	<li>이 문서는 nodejs.org의 사이트를 번역하고, 유용한 정보를 공유하기 위해 작성되었습니다.</li>
+	      	<li>문서에 수정이 필요하다거나 정보를 추가하고 싶으신분은 <a href="https://github.com/FRENDS-Research/nodejs.kr" target="nodejs_kr">Github Repo</a>를 통해 함께 작성하실 수 있습니다. 위의 repo를 fork하시고 수정이 끝나면 pull request 해주시기 바랍니다.</li>
+		</ul>
+     	감사합니다. :D
+      </p>
+      
+    </div>
+    <script type="text/javascript">highlight(undefined, undefined, 'pre');</script>
+  </body>
+</html>
