@@ -3,11 +3,16 @@
 There are many third party modules for Node. At the time of writing, August
 2010, the master repository of modules is
 [the wiki page](http://github.com/joyent/node/wiki/modules).
+Node 를 위한 수 많은 써드 파티 모듈들이 있다. 이 글을 쓰는 시점인 2010년 8월에 모듈
+master 저장소는 [the wiki page](http://github.com/joyent/node/wiki/modules).
 
 This appendix is intended as a SMALL guide to new-comers to help them
 quickly find what are considered to be quality modules. It is not intended
 to be a complete list.  There may be better more complete modules found
 elsewhere.
+이 부록은 괜찮은 모듈이라고 생각하는 모듈을 입문자가 빠르게 찾을 수 있도록 도와주는
+작은 가이드 정도라고 생각하면 된다. 이것은 완벽한 리스트가 아니며 다른 곳에서 더
+완벽한 모듈을 찾을지 모른다.
 
 - Module Installer: [npm](http://github.com/isaacs/npm)
 
@@ -42,3 +47,5 @@ elsewhere.
   [mjsunit.runner](http://github.com/tmpvar/mjsunit.runner)
 
 Patches to this list are welcome.
+이 목록에 패치를 해주는 것은 언제든지 환영한다.
+
