@@ -3,14 +3,18 @@
 Node has a simple module loading system.  In Node, files and modules are in
 one-to-one correspondence.  As an example, `foo.js` loads the module
 `circle.js` in the same directory.
+Node는 간단한 모듈 로딩 시스템이 있다. Node에서 파일과 모듈은 1대 1 대응을 이룬다.
+예를 들어 `foo.js` 는 같은 디렉토리에 있는 `circle.js` 모듈을 로드한다.
 
 The contents of `foo.js`:
+`foo.js`의 내용 :
 
     var circle = require('./circle.js');
     console.log( 'The area of a circle of radius 4 is '
                + circle.area(4));
 
 The contents of `circle.js`:
+`circle.js` 의 내용
 
     var PI = Math.PI;
 
@@ -25,21 +29,28 @@ The contents of `circle.js`:
 The module `circle.js` has exported the functions `area()` and
 `circumference()`.  To export an object, add to the special `exports`
 object.
+`circle.js`는 `area()` 와 `circumference()` 함수를 내보낸다.  개체를 내보내기
+위해서는 지정된 `exports` 객체에 추가해야 한다.
 
 Variables
 local to the module will be private. In this example the variable `PI` is
 private to `circle.js`.
+모듈의 로컬 변수는 지역변수가 된. 이 예제의 경우 변수 `PI`는 `circle.js`는 지역변수이다.
 
 ### Core Modules
 
 Node has several modules compiled into the binary.  These modules are
 described in greater detail elsewhere in this documentation.
+Node는 binary로 컴파일된 여러 모듈들이 있다.
 
 The core modules are defined in node's source in the `lib/` folder.
+코어 모듈들은 `lib/` 폴더의 node 소스에 정의되어 있다.
 
 Core modules are always preferentially loaded if their identifier is
 passed to `require()`.  For instance, `require('http')` will always
 return the built in HTTP module, even if there is a file by that name.
+코어 모듈은 `require()` 에 식별자를 전달하는 것으로 언제든지 로드할 수 있다.
+예를 들어 HTTP 모듈을 생성하려면 `require('http') 를 호출하면 되고
 
 ### File Modules
 
