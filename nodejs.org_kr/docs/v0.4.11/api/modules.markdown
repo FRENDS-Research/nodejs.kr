@@ -349,13 +349,14 @@ Global modules are lower priority than bundled dependencies.
 
 앞에서 본 `node_modules` 알고리즘을 사용해서 모듈을 찾지 못했을 때만 `require.paths`의 위치들로부터의 로딩이 수행된다. 전역 모듈들은 포함되어 있는 의존성들보다 우선순위가 낮다.
 
-#### **Note:** Please Avoid Modifying `require.paths`
+#### **Note:** Please Avoid Using `require.paths`
 
-#### **주의점:** `require.paths`를 수정하는 것은 피해라
+#### **주의점:** `require.paths`를 사용하는 것을 자제해라.
 
-`require.paths` may disappear in a future release.
+`require.paths` will only be supported through the end of the v0.4
+stable branch.  It is removed from node as of v0.5.
 
-`require.paths`는 차후버전에서는 없어질 수 있다.
+`require.paths`는 v0.4 안정버전까지만 지원될 것이고 v0.5부터는 제거될 것이다. 
 
 While it seemed like a good idea at the time, and enabled a lot of
 useful experimentation, in practice a mutable `require.paths` list is

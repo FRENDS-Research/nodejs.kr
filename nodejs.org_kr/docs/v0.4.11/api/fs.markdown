@@ -90,35 +90,35 @@ given to the completion callback.
 Synchronous ftruncate(2).
 동기 방식 ftruncate(2).
 
-### fs.chown(path, mode, [callback])
+### fs.chown(path, uid, gid, [callback])
 
 Asycnronous chown(2). No arguments other than a possible exception are given
 to the completion callback.
 비동기 방식 chown(2). 완료 콜백에는 발생가능한 예외 이외에는 인수가 전달되지 않는다.
 
-### fs.chownSync(path, mode)
+### fs.chownSync(path, uid, gid)
 
 Synchronous chown(2).
 동기 방식 chown(2).
 
-### fs.fchown(path, mode, [callback])
+### fs.fchown(path, uid, gid, [callback])
 
 Asycnronous fchown(2). No arguments other than a possible exception are given
 to the completion callback.
 비동기 방식 fchown(2). 완료 콜백에는 발생가능한 예외 이외에는 인수가 전달되지 않는다.
 
-### fs.fchownSync(path, mode)
+### fs.fchownSync(path, uid, gid)
 
 Synchronous fchown(2).
 동기 방식 fchown(2).
 
-### fs.lchown(path, mode, [callback])
+### fs.lchown(path, uid, gid, [callback])
 
 Asycnronous lchown(2). No arguments other than a possible exception are given
 to the completion callback.
 비동기 방식 lchown(2). 완료 콜백에는 발생가능한 예외 이외에는 인수가 전달되지 않는다.
 
-### fs.lchownSync(path, mode)
+### fs.lchownSync(path, uid, gid)
 
 Synchronous lchown(2).
 동기 방식 lchown(2).
@@ -419,7 +419,7 @@ value in milliseconds. The default is `{ persistent: true, interval: 0 }`.
 The `listener` gets two arguments the current stat object and the previous
 stat object:
 
-    fs.watchFile(f, function (curr, prev) {
+    fs.watchFile('message.text', function (curr, prev) {
       console.log('the current mtime is: ' + curr.mtime);
       console.log('the previous mtime was: ' + prev.mtime);
     });
@@ -427,7 +427,7 @@ stat object:
 These stat objects are instances of `fs.Stat`.
 
 If you want to be notified when the file was modified, not just accessed
-you need to compare `curr.mtime` and `prev.mtime.
+you need to compare `curr.mtime` and `prev.mtime`.
 
 
 ### fs.unwatchFile(filename)
