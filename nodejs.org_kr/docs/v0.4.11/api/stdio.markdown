@@ -13,10 +13,43 @@ Prints to stdout with newline. This function can take multiple arguments in a
 
     console.log('count: %d', count);
 
-If formating elements are not found in the first string then `util.inspect`
-is used on each argument.
+The first argument is a string that contains zero or more *placeholders*.
+Each placeholder is replaced with the converted value from its corresponding
+argument. Supported placeholders are:
 
-첫 문자열에서 포맷팅 요소가 발견되지 않으면 `util.inspect`가 각 아규먼트에서 사용된다.
+첫 아규먼트는 하나이상의 *플레이스홀더*를 담고 있는 문자열이다.
+각 플레이스홀더는 대응되는 아규먼트의 변환된 값으로 교체된다.
+지원되는 플레이스홀더는 다음과 같다:
+
+* `%s` - String.
+* `%d` - Number (both integer and float).
+* `%j` - JSON.
+
+If the placeholder does not have a corresponding argument, `undefined` is used.
+
+플레이스홀더에 대응되는 아규먼트가 없다면 `undefined`를 사용한다.
+
+    console.log('%s:%s', 'foo'); // 'foo:undefined'
+
+If there are more arguments than placeholders, the extra arguments are
+converted to strings with `util.inspect()` and these strings are concatenated,
+delimited by a space.
+
+플레이스홀더보다 많은 아규먼트가 있을 경우 여분의 아규먼트는
+`util.inspect()`로 문자열로 변환되고 각 문자열은 스페이스로 구분되어 연결된다.
+
+    console.log('%s:%s', 'foo', 'bar', 'baz'); // 'foo:bar baz'
+
+If the first argument is not a format string then `console.log()` prints
+a string that is the concatenation of all its arguments separated by spaces.
+Each argument is converted to a string with `util.inspect()`.
+
+첫 아규먼트가 문자열 형식이 아니면 `console.log()`는 모든 아규먼트를
+스페이스로 구분해서 연결한 문자열을 출력한다.
+각 아규먼트는 `util.inspect()`를 통해서 문자열로 변환된다.
+
+    console.log(1, 2, 3); // '1 2 3'
+
 
 ### console.info()
 
