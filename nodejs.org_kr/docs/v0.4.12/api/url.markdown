@@ -77,12 +77,20 @@ string will not be in the parsed object. Examples are shown for the URL
 The following methods are provided by the URL module:
 다음 메서드드은 URL 모듈에서 제공된다.
 
-### url.parse(urlStr, parseQueryString=false)
+### url.parse(urlStr, parseQueryString=false, slashesDenoteHost=false)
 
-Take a URL string, and return an object.  Pass `true` as the second argument to also parse
+Take a URL string, and return an object.  
+
+Pass `true` as the second argument to also parse
 the query string using the `querystring` module.
 URL 문자열을 인수로 해석한 결과를 반환한다. `querystring` 모듈을 이용하여 쿼리 문자열을 구문 분석하려면
 두번째 인수에 `true`를 전달한다.
+
+Pass `true` as the third argument to treat `//foo/bar` as
+`{ host: 'foo', pathname: '/bar' }` rather than
+`{ pathname: '//foo/bar' }`.
+`//foo/bar/를 `{ pathname: '//foo/bar' }`보다는 `{ host: 'foo', pathname: '/bar' }`로
+다루려면 세번째 인수에 `true`를 전달한다.
 
 ### url.format(urlObj)
 
